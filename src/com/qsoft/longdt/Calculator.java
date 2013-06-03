@@ -12,19 +12,22 @@ public class Calculator {
 			return 0;
 		} else if (input.contains(",")) {
 			String[] tokens = input.split(",");
-			List<Integer> numbers = convert(tokens,
-					new Converter<String, Integer>() {
-
-						@Override
-						public Integer convert(String arg0) {
-							// TODO Auto-generated method stub
-							return toInt(arg0);
-						}
-					});
+			List<Integer> numbers = convert(tokens, toInt());
 			return sum(numbers).intValue();
 		} else {
 			return Integer.parseInt(input);
 		}
+	}
+
+	private static Converter<String, Integer> toInt() {
+		return new Converter<String, Integer>() {
+
+			@Override
+			public Integer convert(String arg0) {
+				// TODO Auto-generated method stub
+				return toInt(arg0);
+			}
+		};
 	}
 
 	private static int toInt(String input) {
