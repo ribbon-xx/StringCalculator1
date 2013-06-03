@@ -12,11 +12,16 @@ public class Calculator {
 			return 0;
 		} else if (input.contains(",")) {
 			String[] tokens = input.split(",");
-			List<Integer> numbers = convert(tokens, toInt());
+			List<Integer> numbers = tokenize(tokens);
 			return sum(numbers).intValue();
 		} else {
 			return Integer.parseInt(input);
 		}
+	}
+
+	private static List<Integer> tokenize(String[] tokens) {
+		List<Integer> numbers = convert(tokens, toInt());
+		return numbers;
 	}
 
 	private static Converter<String, Integer> toInt() {
@@ -24,7 +29,6 @@ public class Calculator {
 
 			@Override
 			public Integer convert(String arg0) {
-				// TODO Auto-generated method stub
 				return toInt(arg0);
 			}
 		};
