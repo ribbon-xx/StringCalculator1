@@ -18,10 +18,10 @@ public class Calculator {
 		} else {
 			String[] tokens = tokenize(input);
 			List<Integer> numbers = convert(tokens, toInt());
-//			List<Integer> negatives = filter(lessThan(0), numbers);
-//			if (negatives.size() > 0) {
-//				throw new RuntimeException();
-//			}
+			List<Integer> negatives = filter(lessThan(0), numbers);
+			if (negatives.size() > 0) {
+				throw new RuntimeException();
+			}
 			return sum(numbers).intValue();
 		}
 	}
