@@ -50,7 +50,6 @@ public class Calculator {
 
 			@Override
 			public Integer convert(String arg0) {
-				// TODO Auto-generated method stub
 				return toInt(arg0);
 			}
 		};
