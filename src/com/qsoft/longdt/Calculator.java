@@ -11,17 +11,17 @@ public class Calculator {
 		if (input.isEmpty()) {
 			return 0;
 		} else if (input.contains(",")) {
-			String[] tokens = input.split(",");
-			List<Integer> numbers = tokenize(tokens);
+			String[] tokens = tokenize(input);
+			List<Integer> numbers = convert(tokens, toInt());
 			return sum(numbers).intValue();
 		} else {
 			return Integer.parseInt(input);
 		}
 	}
 
-	private static List<Integer> tokenize(String[] tokens) {
-		List<Integer> numbers = convert(tokens, toInt());
-		return numbers;
+	private static String[] tokenize(String input) {
+		String[] tokens = input.split(",|\n");
+		return tokens;
 	}
 
 	private static Converter<String, Integer> toInt() {
@@ -29,6 +29,7 @@ public class Calculator {
 
 			@Override
 			public Integer convert(String arg0) {
+				// TODO Auto-generated method stub
 				return toInt(arg0);
 			}
 		};
