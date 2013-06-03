@@ -5,7 +5,7 @@ public class Calculator {
 		if (input.isEmpty()) {
 			return 0;
 		} else {
-			return -1;
+			return Integer.parseInt(input);
 		}
 	}
 }
