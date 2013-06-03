@@ -1,8 +1,11 @@
 package com.qsoft.longdt;
 
-import static ch.lambdaj.Lambda.*;
+import static ch.lambdaj.Lambda.convert;
+import static ch.lambdaj.Lambda.sum;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import ch.lambdaj.function.convert.Converter;
 
@@ -20,6 +23,12 @@ public class Calculator {
 	}
 
 	private static String[] tokenize(String input) {
+		if (input.startsWith("//")) {
+			Matcher m = Pattern.compile("//(.)\n(.*)").matcher(input);
+			String customDelimiter = m.group(1);
+			String numbers = m.group(2);
+			return numbers.split(customDelimiter);
+		}
 		String[] tokens = input.split(",|\n");
 		return tokens;
 	}
