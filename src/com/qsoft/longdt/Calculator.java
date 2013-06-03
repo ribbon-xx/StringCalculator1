@@ -2,6 +2,8 @@ package com.qsoft.longdt;
 
 import static ch.lambdaj.Lambda.convert;
 import static ch.lambdaj.Lambda.sum;
+import static ch.lambdaj.Lambda.filter;
+import static org.hamcrest.Matchers.lessThan;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -16,6 +18,10 @@ public class Calculator {
 		} else {
 			String[] tokens = tokenize(input);
 			List<Integer> numbers = convert(tokens, toInt());
+//			List<Integer> negatives = filter(lessThan(0), numbers);
+//			if (negatives.size() > 0) {
+//				throw new RuntimeException();
+//			}
 			return sum(numbers).intValue();
 		}
 	}
