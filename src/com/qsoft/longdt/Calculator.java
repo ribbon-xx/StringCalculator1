@@ -2,6 +2,10 @@ package com.qsoft.longdt;
 
 public class Calculator {
 	public static int add(String input) {
-		return -1;
+		if (input.isEmpty()) {
+			return 0;
+		} else {
+			return -1;
+		}
 	}
 }
